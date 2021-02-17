@@ -5,6 +5,8 @@ import sqlite3
 
 df_titanic = pd.read_csv('titanic.csv')
 
+df_titanic = df_titanic.replace("'", " ", regex=True)
+
 
 conn = sqlite3.connect('titanic_to_sql.sqlite3')
 conn
@@ -12,4 +14,4 @@ conn
 curs = conn.cursor()
 curs
 
-df_titanic.to_sql('titanic', con=conn)
+df_titanic.to_sql('titanic', conn)

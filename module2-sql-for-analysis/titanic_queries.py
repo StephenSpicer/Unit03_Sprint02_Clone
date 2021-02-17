@@ -1,15 +1,19 @@
 """ list of queries / statements to get our titanic tables set up on postgres """
 
+SELECT_ALL = """
+  SELECT * FROM {};
+  """
+
 create_titanic_table = """
-  CREATE TABLE IF NOT EXISTS titanic_disaster (
+  CREATE TABLE titanic_disaster (
     index_id SERIAL PRIMARY KEY,
     Survived INT,
     Pclass INT,
-    name VARCHAR(60),
+    Name VARCHAR(100),
     Sex VARCHAR(10),
     Age INT,
-    Siblings/Spouses Aboard INT,
-    Parents/Children Aboard INT,
+    SiblingsSpouses INT,
+    ParentsChildren INT,
     Fare INT
   );
 """
