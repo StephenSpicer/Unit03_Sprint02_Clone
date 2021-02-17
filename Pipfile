@@ -8,6 +8,7 @@ pandas = "*"
 psycopg2-binary = "*"
 pep8 = "*"
 pylint = "*"
+pymongo = "*"
 
 [dev-packages]
 

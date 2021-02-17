@@ -38,7 +38,7 @@ def execute_query(curs, query, reading=True):
         return results
 
 def add_titanic(pg_curs, passenger_list):
-    """Grabbing characters from sqlite"""
+    """Grabbing passengers from sqlite"""
     passenger_list_temp = """
       INSERT INTO titanic_disaster
       (index_id, Survived, Pclass, Name, Sex, Age, SiblingsSpouses, ParentsChildren, Fare)
