@@ -9,6 +9,7 @@ psycopg2-binary = "*"
 pep8 = "*"
 pylint = "*"
 pymongo = "*"
+dnspython = "*"
 
 [dev-packages]
 
