@@ -17,7 +17,7 @@ def execute_q(conn, query):
 
 def make_table():
     query = """
-    CREATE TABLE data (
+    CREATE TABLE demo (
         s CHAR(1),
         x INT,
         y INT
@@ -28,7 +28,7 @@ def make_table():
 
 def clear_table():
     query = """
-    DROP TABLE data;
+    DROP TABLE demo;
     """
     return query
 
@@ -49,7 +49,7 @@ def insert_statement():
 def row_count():
     row_count = """
     SELECT COUNT(s)
-    FROM data;
+    FROM demo;
     """
     return row_count
 
@@ -57,7 +57,7 @@ def row_count():
 def xy_at_least_5():
     xycount = """
     SELECT x, y
-    FROM data
+    FROM demo
     WHERE x >= 5
     AND y >= 5;
     """
@@ -67,7 +67,7 @@ def xy_at_least_5():
 def unique_y():
     yunique = """
     SELECT COUNT(DISTINCT y)
-    FROM data;
+    FROM demo;
     """
     return yunique
 
@@ -77,15 +77,16 @@ execute_q(conn, make_table())
 
 execute_q(conn, insert_statement())
 
-rc = execute_q(conn, row_count())
-rcp = [i[0] for i in rc]
+row_count = execute_q(conn, row_count())
+rcp = [i[0] for i in row_count]
 print("row count =:", rcp)
 
-xy5 = execute_q(conn, xy_at_least_5())
-print("x and y >= 5: ", xy5)
+xy_at_least_5 = execute_q(conn, xy_at_least_5())
+print("x and y >= 5: ", xy_at_least_5)
 
-yd = execute_q(conn, unique_y())
-print("distinct y count: ", yd)
+unique_y = execute_q(conn, unique_y())
+
+print("distinct y count: ", unique_y)
 
 
 conn.commit()
